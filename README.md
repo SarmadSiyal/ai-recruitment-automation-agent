@@ -169,7 +169,9 @@ Email includes:
 
 ### Workflow Architecture
 
-![Workflow Architecture](screenshots/Workflow_Architecture.png)
+<p align="center">
+  <img src="./screenshots/Workflow_Architecture.png" alt="Workflow Architecture" width="800"/>
+</p>
 
 **Image Description:**  
 The image displays the complete n8n workflow architecture including Gmail trigger, CV extraction node, AI evaluation agent (Groq LLaMA 3), scoring engine, classification logic, interview scheduling module, and Google Sheets database integration.
