@@ -170,7 +170,7 @@ Email includes:
 ### Workflow Architecture
 
 <p align="center">
-  <img src="./screenshots/Workflow_Architecture.png" alt="Workflow Architecture" width="800"/>
+  <img src="./Screenshots/Workflow_Architecture.png" alt="Workflow Architecture" width="800"/>
 </p>
 
 **Image Description:**  
