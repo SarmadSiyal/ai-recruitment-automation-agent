@@ -1,225 +1,283 @@
-# 🤖 AI Recruitment Intelligence Agent System
+# 🤖 AI Recruitment Intelligence Automation Platform
+
+A production-ready AI-powered recruitment automation system that intelligently screens CVs, evaluates candidates using LLM-based scoring, validates applications, classifies applicants, auto-schedules interviews, and streamlines hiring operations with a professional candidate experience.
+
+--------------------------------------------------------------------------------
+
+## 🚀 PROJECT OVERVIEW
+
+The AI Recruitment Intelligence Automation Platform is an end-to-end hiring automation solution designed to reduce manual HR workload and improve recruitment efficiency.
+
+Built Using:
+
+• n8n – Workflow Automation Engine
+• Groq LLaMA 3 (70B) – Large Language Model
+• Gmail API – Email Intake & Communication
+• Google Sheets – Recruitment CRM & Job Database
+• JavaScript – Smart Interview Scheduling Logic
+
+The System Automatically:
+
+• Monitors incoming candidate applications
+• Accepts only emails with attachments
+• Validates CV file format (PDF only)
+• Extracts and evaluates candidate profiles using AI
+• Scores applicants against job requirements
+• Classifies candidates (Shortlisted / Rejected / Position Closed)
+• Generates optimized interview schedules
+• Sends professional automated responses
+• Maintains structured candidate records
+• Notifies HR team with interview details
+
+--------------------------------------------------------------------------------
+
+## 🎯 OBJECTIVES
+
+• Automate CV screening and candidate evaluation
+• Reduce repetitive HR workload
+• Improve response time to applicants
+• Create structured candidate comparison process
+• Improve hiring consistency using AI scoring
+• Deliver scalable recruitment operations
+• Maintain professional candidate communication
+
+--------------------------------------------------------------------------------
+
+## 🧠 PRODUCTION WORKFLOW ARCHITECTURE
+
+Inbound CV Email Listener
+        ↓
+Fetch Candidate Email Content
+        ↓
+Validate PDF Attachment Format
+   ├── Invalid File → Request PDF CV + Mark Reviewed
+   └── Valid File
+            ↓
+Extract CV Text from PDF
+            ↓
+Prepare Candidate Data Payload
+            ↓
+AI Candidate Evaluation Engine
+            ↓
+Fetch Open Job Requirements
+            ↓
+Normalize Evaluation Results
+            ↓
+Check Job Vacancy Status
+   ├── Closed → Send Position Closed Email
+   └── Open
+          ↓
+Check Candidate Shortlist Status
+   ├── Shortlisted Flow
+   │      ↓
+   │ Send Confirmation Email
+   │ Store Candidate Record
+   │ Delay (Human-like Review)
+   │ Generate Interview Schedule
+   │ Send Interview Invitation
+   │ Update CRM
+   │ Notify HR Team
+   │
+   └── Rejected Flow
+          ↓
+      Send Confirmation Email
+      Delay (Manual Review Simulation)
+      Send Rejection Email
 
-An end-to-end AI-powered recruitment automation system that automatically screens CVs, evaluates candidates using LLM-based scoring, classifies applicants, and auto-schedules interviews — reducing manual HR workload and improving hiring efficiency.
+--------------------------------------------------------------------------------
 
----
+## ⚙️ TECHNOLOGIES USED
 
-## 🚀 Project Overview
+• n8n
+• Groq LLaMA 3 (70B)
+• Gmail API (OAuth2)
+• Google Sheets API
+• JavaScript
+• PDF Text Extraction
+• JSON Structured Output
+• AI Decision Workflows
 
-The **AI Recruitment Intelligence Agent** is a production-ready hiring automation system built using:
+--------------------------------------------------------------------------------
 
-- **n8n** (Workflow Automation Engine)
-- **Groq LLaMA 3 (70B)** – Large Language Model
-- **Gmail API** – Email monitoring & automation
-- **Google Sheets** – Lightweight structured database
+## 🔄 WORKFLOW BREAKDOWN
 
-The system automatically:
+1️⃣ Candidate Application Intake
 
-- 📥 Monitors incoming CV emails  
-- 📄 Extracts and parses PDF resumes  
-- 🧠 Evaluates candidates using AI scoring  
-- 📊 Classifies applicants (Shortlisted / Rejected / Closed)  
-- 📅 Auto-schedules interviews  
-- 📧 Sends automated email responses  
-- 🗂 Maintains structured candidate database  
+• The system monitors new Gmail messages
+• Only Inbox emails with attachments are processed
+• Prevents irrelevant email execution
 
----
+--------------------------------------------------
 
-## 🎯 Objectives
+2️⃣ File Validation Layer
 
-- Automate CV screening process  
-- Reduce manual HR workload  
-- Improve hiring response time  
-- Enable structured candidate comparison  
-- Minimize bias using AI-based scoring  
-- Build scalable recruitment automation  
+• Checks whether attachment is in PDF format
 
----
+If Invalid:
 
-## 🧠 System Architecture
+• Sends professional email requesting PDF CV
+• Marks email as reviewed
+• Ends process
 
-```
-Gmail Trigger
-      ↓
-CV Extraction (PDF Parser)
-      ↓
-AI Evaluation Agent (Groq LLaMA 3)
-      ↓
-Scoring Engine
-      ↓
-Classification Logic
-      ↓
-Email Automation
-      ↓
-Database Update (Google Sheets)
-      ↓
-Interview Scheduling
-```
+If Valid:
 
----
+• Continues to AI screening process
 
-## ⚙️ Technologies Used
+--------------------------------------------------
 
-- n8n
-- Groq LLaMA 3 (70B)
-- Gmail API (OAuth2)
-- Google Sheets API
-- JSON Parsing
-- PDF Text Extraction
+3️⃣ Resume Parsing Engine
 
----
+• Extracts text from PDF CV
+• Structures candidate information:
 
-## 🔄 Workflow Breakdown
+  - Full Name
+  - Email
+  - Phone Number
+  - Skills
+  - Experience
+  - Education
 
-### 1️⃣ CV Reception
+--------------------------------------------------
 
-- Gmail Trigger monitors unread emails with attachments.
-- Automatically detects incoming resumes.
+4️⃣ AI Candidate Evaluation Engine
 
----
+• Fetches open job requirements from Google Sheets
+• Compares candidate profile against job criteria
+• Calculates:
 
-### 2️⃣ Resume Parsing
+  - Skills Score
+  - Experience Score
+  - Education Score
 
-- Extract File Node extracts text from PDF.
-- CV content stored as structured variable (`cv_text`).
+Overall Score:
 
----
+overall_score = (skills_score + experience_score + education_score) / 3
 
-### 3️⃣ AI Candidate Evaluation
+--------------------------------------------------
 
-The AI Agent performs:
+5️⃣ Vacancy Status Logic
 
-- Candidate information extraction  
-- Job requirement retrieval from Google Sheets  
-- Skills matching  
-- Experience comparison  
-- Education verification  
-- Structured score calculation  
+• Checks whether the job position is open
 
-### 📊 Scoring Formula
+If Closed:
 
-```javascript
-overall_score = (skills_match + experience_match + education_match) / 3
-```
+• Sends position closed notification to candidate
 
----
+--------------------------------------------------
 
-### 4️⃣ Decision Logic
+6️⃣ Candidate Classification Logic
 
-- **Score ≥ 70 → Shortlisted**
-- **Score < 70 → Rejected**
-- **Job Closed → Closed**
+If Open Role:
 
----
+--------------------------------------------------
 
-### 5️⃣ Automated Email Responses
+✅ Shortlisted Candidate Flow
 
-The system automatically sends:
+• Sends application received confirmation
+• Stores candidate in CRM sheet
+• Adds short delay for human-like review
+• Generates interview date & time
+• Sends interview invitation with:
 
-- ✅ Interview invitation email  
-- ❌ Rejection email  
-- 📌 Position closed notification  
+  - Date
+  - Time
+  - Location
+  - Google Maps Link
 
----
+• Updates CRM with interview schedule
+• Sends HR notification email
 
-### 6️⃣ Interview Scheduling
+--------------------------------------------------
 
-Interview date is automatically generated:
+❌ Rejected Candidate Flow
 
-```javascript
-current_date + 2 days
-```
+• Sends application received confirmation
+• Waits before rejection response
+• Sends polite rejection email
+• Marks email as processed
 
-Email includes:
+--------------------------------------------------------------------------------
 
-- Interview date & time  
-- Location  
-- Instructions  
+## 📁 DATABASE STRUCTURE
 
----
+Job Requirements Sheet
 
-### 7️⃣ Database Structure
+• Job ID
+• Position Title
+• Required Skills
+• Minimum Experience
+• Required Education
+• Job Status
+• Hiring Priority
 
-### 📁 Job Database (Google Sheets)
+--------------------------------------------------
 
-- Job ID  
-- Position Title  
-- Required Skills  
-- Minimum Experience  
-- Required Education  
-- Interview Schedule  
-- Job Status  
+Candidate CRM Sheet
 
-### 📁 Shortlisted Applicants Database
+• Candidate ID
+• Full Name
+• Email
+• Phone
+• Skills Score
+• Experience Score
+• Education Score
+• Overall Score
+• Final Decision
+• Interview Date
+• Interview Time
+• Status
 
-- Applicant ID  
-- Candidate Name  
-- Email  
-- Phone  
-- Skills Match Score  
-- Experience Match Score  
-- Education Match Score  
-- Overall Score  
-- Interview DateTime  
-- Status  
+--------------------------------------------------------------------------------
 
----
+## 🔐 SECURITY & RELIABILITY
 
-## 📸 Screenshots
+• Gmail OAuth2 Authentication
+• Controlled Google Sheets Access
+• Structured AI JSON Output
+• No public candidate data exposure
+• Professional communication flow
+• Production-ready logic separation
 
-### Workflow Architecture
+--------------------------------------------------------------------------------
 
-<p align="center">
-  <img src="./Screenshots/Workflow_Architecture.png" alt="Workflow Architecture" width="800"/>
-</p>
+## 🚀 KEY FEATURES
 
-**Image Description:**  
-The image displays the complete n8n workflow architecture including Gmail trigger, CV extraction node, AI evaluation agent (Groq LLaMA 3), scoring engine, classification logic, interview scheduling module, and Google Sheets database integration.
+• Intelligent CV Screening
+• AI Candidate Scoring
+• PDF Validation Layer
+• Vacancy Status Check
+• Interview Auto Scheduling
+• CRM Record Management
+• Human-like Delayed Communication
+• HR Team Notifications
+• Scalable Hiring Operations
 
----
+--------------------------------------------------------------------------------
 
-## 🔐 Security Considerations
+## 📈 BUSINESS IMPACT
 
-- Gmail OAuth authentication  
-- Secure Google Sheets access  
-- No external storage outside Google ecosystem  
-- Structured JSON AI output for controlled automation  
+• Reduces manual CV screening time
+• Improves hiring speed
+• Standardizes candidate evaluation
+• Enhances candidate experience
+• Saves recruiter time
+• Scales recruitment efficiently
 
----
+--------------------------------------------------------------------------------
 
-## 🚀 Key Features
+## 🏗 FUTURE IMPROVEMENTS
 
-- Fully automated recruitment pipeline  
-- AI-based candidate scoring  
-- Structured decision engine  
-- Auto interview scheduling  
-- Real-time email automation  
-- Bias-reduced early-stage screening  
-- Scalable architecture  
+• HR Dashboard
+• ATS Integration
+• PostgreSQL Upgrade
+• Candidate Ranking Dashboard
+• WhatsApp Candidate Notifications
+• Multi-role Hiring Pipelines
+• Calendar Auto Booking
 
----
+--------------------------------------------------------------------------------
 
-## 🏗 Future Improvements
+## 👨‍💻 AUTHOR
 
-- HR dashboard interface  
-- CRM integration (HubSpot / Zoho)  
-- PostgreSQL database upgrade  
-- Candidate ranking analytics  
-- Multi-job parallel processing  
-
----
-
-## 📌 Business Impact
-
-- Reduces manual CV screening time  
-- Improves hiring speed  
-- Enables structured and consistent evaluation  
-- Minimizes human bias  
-- Scalable for growing organizations  
-
----
-
-## 👨‍💻 Author
-
-**Sarmad Siyal**  
-AI Automation Specialist | AI Agent Builder | AI Workflow Engineer
+Sarmad Siyal
+AI Automation Specialist | AI Agent Builder | Workflow Engineer
