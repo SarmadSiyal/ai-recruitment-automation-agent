@@ -2,49 +2,50 @@
 
 A production-ready AI-powered recruitment automation system that intelligently screens CVs, evaluates candidates using LLM-based scoring, validates applications, classifies applicants, auto-schedules interviews, and streamlines hiring operations with a professional candidate experience.
 
---------------------------------------------------------------------------------
+---
 
-## 🚀 PROJECT OVERVIEW
+## 🚀 Project Overview
 
-The AI Recruitment Intelligence Automation Platform is an end-to-end hiring automation solution designed to reduce manual HR workload and improve recruitment efficiency.
+The **AI Recruitment Intelligence Automation Platform** is an end-to-end hiring automation solution designed to reduce manual HR workload and improve recruitment efficiency.
 
-Built Using:
+Built using:
 
-• n8n – Workflow Automation Engine
-• Groq LLaMA 3 (70B) – Large Language Model
-• Gmail API – Email Intake & Communication
-• Google Sheets – Recruitment CRM & Job Database
-• JavaScript – Smart Interview Scheduling Logic
+- **n8n** – Workflow Automation Engine  
+- **Groq LLaMA 3 (70B)** – Large Language Model  
+- **Gmail API** – Email Intake & Communication  
+- **Google Sheets** – Recruitment CRM & Job Database  
+- **JavaScript** – Smart Interview Scheduling Logic  
 
-The System Automatically:
+The system automatically:
 
-• Monitors incoming candidate applications
-• Accepts only emails with attachments
-• Validates CV file format (PDF only)
-• Extracts and evaluates candidate profiles using AI
-• Scores applicants against job requirements
-• Classifies candidates (Shortlisted / Rejected / Position Closed)
-• Generates optimized interview schedules
-• Sends professional automated responses
-• Maintains structured candidate records
-• Notifies HR team with interview details
+- 📥 Monitors incoming candidate applications  
+- 📎 Accepts only emails with attachments  
+- 📄 Validates CV file format (PDF only)  
+- 🧠 Extracts and evaluates candidate profiles using AI  
+- 📊 Scores applicants against job requirements  
+- 🟢 Classifies candidates (Shortlisted / Rejected / Position Closed)  
+- 📅 Generates optimized interview schedules  
+- 📧 Sends professional automated responses  
+- 🗂 Maintains structured candidate records  
+- 👥 Notifies HR team with interview details  
 
---------------------------------------------------------------------------------
+---
 
-## 🎯 OBJECTIVES
+## 🎯 Objectives
 
-• Automate CV screening and candidate evaluation
-• Reduce repetitive HR workload
-• Improve response time to applicants
-• Create structured candidate comparison process
-• Improve hiring consistency using AI scoring
-• Deliver scalable recruitment operations
-• Maintain professional candidate communication
+- Automate CV screening and candidate evaluation  
+- Reduce repetitive HR workload  
+- Improve response time to applicants  
+- Create structured candidate comparison process  
+- Improve hiring consistency using AI scoring  
+- Deliver scalable recruitment operations  
+- Maintain professional candidate communication  
 
---------------------------------------------------------------------------------
+---
 
-## 🧠 PRODUCTION WORKFLOW ARCHITECTURE
+# 🧠 Production Workflow Architecture
 
+```text
 Inbound CV Email Listener
         ↓
 Fetch Candidate Email Content
