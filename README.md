@@ -1,4 +1,5 @@
-# 🤖 AI Recruitment Intelligence Automation System
+````markdown
+# 🤖 AI Recruitment Intelligence Automation Platform
 
 A production-ready AI-powered recruitment automation system that intelligently screens CVs, evaluates candidates using LLM-based scoring, validates applications, classifies applicants, auto-schedules interviews, and streamlines hiring operations with a professional candidate experience.
 
@@ -84,201 +85,232 @@ Check Candidate Shortlist Status
       Send Confirmation Email
       Delay (Manual Review Simulation)
       Send Rejection Email
+````
 
---------------------------------------------------------------------------------
+---
 
-## ⚙️ TECHNOLOGIES USED
+# ⚙️ Technologies Used
 
-• n8n
-• Groq LLaMA 3 (70B)
-• Gmail API (OAuth2)
-• Google Sheets API
-• JavaScript
-• PDF Text Extraction
-• JSON Structured Output
-• AI Decision Workflows
+* n8n
+* Groq LLaMA 3 (70B)
+* Gmail API (OAuth2)
+* Google Sheets API
+* JavaScript Scheduling Logic
+* PDF Text Extraction
+* JSON Structured Output
+* AI Decision Workflows
 
---------------------------------------------------------------------------------
+---
 
-## 🔄 WORKFLOW BREAKDOWN
+# 🔄 Workflow Breakdown
 
-1️⃣ Candidate Application Intake
+---
 
-• The system monitors new Gmail messages
-• Only Inbox emails with attachments are processed
-• Prevents irrelevant email execution
+## 1️⃣ Candidate Application Intake
 
---------------------------------------------------
+The system listens for new Gmail messages that:
 
-2️⃣ File Validation Layer
+* Are inside Inbox
+* Contain attachments
 
-• Checks whether attachment is in PDF format
+This prevents unnecessary processing of irrelevant emails.
 
-If Invalid:
+---
 
-• Sends professional email requesting PDF CV
-• Marks email as reviewed
-• Ends process
+## 2️⃣ File Validation Layer
 
-If Valid:
+The workflow checks whether the attached CV is in **PDF format**.
 
-• Continues to AI screening process
+### If Invalid:
 
---------------------------------------------------
+* Sends professional email requesting PDF CV
+* Marks email as reviewed
+* Ends process
 
-3️⃣ Resume Parsing Engine
+### If Valid:
 
-• Extracts text from PDF CV
-• Structures candidate information:
+* Continues to AI screening flow
 
-  - Full Name
-  - Email
-  - Phone Number
-  - Skills
-  - Experience
-  - Education
+---
 
---------------------------------------------------
+## 3️⃣ Resume Parsing Engine
 
-4️⃣ AI Candidate Evaluation Engine
+The PDF CV is processed and text is extracted.
 
-• Fetches open job requirements from Google Sheets
-• Compares candidate profile against job criteria
-• Calculates:
+Candidate information is prepared in structured format for AI evaluation.
 
-  - Skills Score
-  - Experience Score
-  - Education Score
+Examples:
 
-Overall Score:
+* Name
+* Email
+* Phone Number
+* Skills
+* Experience
+* Education
 
+---
+
+## 4️⃣ AI Candidate Evaluation Engine
+
+The AI Agent compares candidate data against active job requirements stored in Google Sheets.
+
+It evaluates:
+
+* Skills Match
+* Experience Match
+* Education Match
+* Profile Relevance
+
+### 📊 Scoring Formula
+
+```javascript
 overall_score = (skills_score + experience_score + education_score) / 3
+```
 
---------------------------------------------------
+---
 
-5️⃣ Vacancy Status Logic
+## 5️⃣ Vacancy Status Logic
 
-• Checks whether the job position is open
+Before progressing, the workflow checks if the job role is still open.
 
-If Closed:
+### If Closed:
 
-• Sends position closed notification to candidate
+Candidate receives professional notification that the position has been closed.
 
---------------------------------------------------
+---
 
-6️⃣ Candidate Classification Logic
+## 6️⃣ Candidate Classification Logic
 
-If Open Role:
+If the role is open:
 
---------------------------------------------------
+### ✅ Shortlisted Candidate
 
-✅ Shortlisted Candidate Flow
+* Sends application success confirmation
 
-• Sends application received confirmation
-• Stores candidate in CRM sheet
-• Adds short delay for human-like review
-• Generates interview date & time
-• Sends interview invitation with:
+* Stores candidate in CRM sheet
 
-  - Date
-  - Time
-  - Location
-  - Google Maps Link
+* Applies short delay for natural review experience
 
-• Updates CRM with interview schedule
-• Sends HR notification email
+* Auto-generates interview date & time
 
---------------------------------------------------
+* Sends interview invitation with:
 
-❌ Rejected Candidate Flow
+  * Date
+  * Time
+  * Office / Online Location
+  * Google Maps Link
 
-• Sends application received confirmation
-• Waits before rejection response
-• Sends polite rejection email
-• Marks email as processed
+* Updates candidate CRM record
 
---------------------------------------------------------------------------------
+* Sends internal notification to HR team
 
-## 📁 DATABASE STRUCTURE
+---
 
-Job Requirements Sheet
+### ❌ Rejected Candidate
 
-• Job ID
-• Position Title
-• Required Skills
-• Minimum Experience
-• Required Education
-• Job Status
-• Hiring Priority
+* Sends application received acknowledgement
+* Waits before rejection (human-like process)
+* Sends polite rejection email
+* Marks email as processed
 
---------------------------------------------------
+---
 
-Candidate CRM Sheet
+# 📁 Google Sheets Database Structure
 
-• Candidate ID
-• Full Name
-• Email
-• Phone
-• Skills Score
-• Experience Score
-• Education Score
-• Overall Score
-• Final Decision
-• Interview Date
-• Interview Time
-• Status
+## Job Requirements Sheet
 
---------------------------------------------------------------------------------
+* Job ID
+* Position Title
+* Required Skills
+* Minimum Experience
+* Required Education
+* Job Status
+* Hiring Priority
 
-## 🔐 SECURITY & RELIABILITY
+---
 
-• Gmail OAuth2 Authentication
-• Controlled Google Sheets Access
-• Structured AI JSON Output
-• No public candidate data exposure
-• Professional communication flow
-• Production-ready logic separation
+## Candidate CRM Sheet
 
---------------------------------------------------------------------------------
+* Candidate ID
+* Full Name
+* Email
+* Phone
+* Skills Score
+* Experience Score
+* Education Score
+* Overall Score
+* Final Decision
+* Interview Date
+* Interview Time
+* Status
 
-## 🚀 KEY FEATURES
+---
 
-• Intelligent CV Screening
-• AI Candidate Scoring
-• PDF Validation Layer
-• Vacancy Status Check
-• Interview Auto Scheduling
-• CRM Record Management
-• Human-like Delayed Communication
-• HR Team Notifications
-• Scalable Hiring Operations
+# 📸 Screenshots
 
---------------------------------------------------------------------------------
+## Workflow Architecture
 
-## 📈 BUSINESS IMPACT
+<p align="center">
+  <img src="./Screenshots/Workflow_Architecture.png" width="1000"/>
+</p>
 
-• Reduces manual CV screening time
-• Improves hiring speed
-• Standardizes candidate evaluation
-• Enhances candidate experience
-• Saves recruiter time
-• Scales recruitment efficiently
+**Description:**
+Production-level n8n recruitment workflow with validation layer, AI screening engine, vacancy decision logic, shortlisted/rejected flows, scheduling automation, CRM updates, and HR notifications.
 
---------------------------------------------------------------------------------
+---
 
-## 🏗 FUTURE IMPROVEMENTS
+# 🔐 Security & Reliability
 
-• HR Dashboard
-• ATS Integration
-• PostgreSQL Upgrade
-• Candidate Ranking Dashboard
-• WhatsApp Candidate Notifications
-• Multi-role Hiring Pipelines
-• Calendar Auto Booking
+* Gmail OAuth2 Authentication
+* Controlled Google Sheets Access
+* Structured AI JSON Output
+* No public candidate data exposure
+* Professional candidate communication flow
+* Production-ready logic separation
 
---------------------------------------------------------------------------------
+---
 
-## 👨‍💻 AUTHOR
+# 🚀 Key Features
 
-Sarmad Siyal
+* Intelligent CV Screening
+* AI Candidate Scoring
+* PDF Validation Layer
+* Vacancy Status Check
+* Interview Auto Scheduling
+* CRM Record Management
+* Human-like Delayed Communication
+* HR Team Notifications
+* Scalable Hiring Operations
+
+---
+
+# 📈 Business Impact
+
+* Reduces manual CV screening time drastically
+* Improves candidate response speed
+* Standardizes hiring decisions
+* Enhances candidate experience
+* Saves recruiter operational time
+* Scales recruitment with fewer resources
+
+---
+
+# 🏗 Future Improvements
+
+* HR Analytics Dashboard
+* ATS Integration
+* PostgreSQL Upgrade
+* Candidate Ranking Leaderboard
+* WhatsApp Candidate Notifications
+* Multi-role Hiring Pipelines
+* Calendar Auto Booking
+
+---
+
+# 👨‍💻 Author
+
+**Sarmad Siyal**
 AI Automation Specialist | AI Agent Builder | Workflow Engineer
+
+```
+```
