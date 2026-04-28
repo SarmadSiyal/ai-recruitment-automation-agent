@@ -43,7 +43,6 @@ The system automatically:
 
 # 🧠 Production Workflow Architecture
 
-```text
 Inbound CV Email Listener
         ↓
 Fetch Candidate Email Content
@@ -137,7 +136,6 @@ Examples:
 * Experience
 * Education
 
----
 
 ## 4️⃣ AI Candidate Evaluation Engine
 
@@ -290,4 +288,3 @@ Production-level n8n recruitment workflow with validation layer, AI screening en
 **Sarmad Siyal**
 AI Automation Specialist | AI Agent Builder | Workflow Engineer
 
-```
