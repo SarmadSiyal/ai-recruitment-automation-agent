@@ -11,11 +11,11 @@ The **AI Recruitment Intelligence Automation Platform** is an end-to-end hiring 
 
 Built using:
 
-- **n8n** – Workflow Automation Engine  
-- **Groq LLaMA 3 (70B)** – Large Language Model  
-- **Gmail API** – Email Intake & Communication  
-- **Google Sheets** – Recruitment CRM & Job Database  
-- **JavaScript** – Smart Interview Scheduling Logic  
+- n8n – Workflow Automation Engine  
+- Groq LLaMA 3 (70B) – Large Language Model  
+- Gmail API – Email Intake & Communication  
+- Google Sheets – Recruitment CRM & Job Database  
+- JavaScript – Smart Interview Scheduling Logic  
 
 The system automatically:
 
