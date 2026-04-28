@@ -1,5 +1,5 @@
 ````markdown
-# 🤖 AI Recruitment Intelligence Automation Platform
+# 🤖 AI Recruitment Intelligence Automation System
 
 A production-ready AI-powered recruitment automation system that intelligently screens CVs, evaluates candidates using LLM-based scoring, validates applications, classifies applicants, auto-schedules interviews, and streamlines hiring operations with a professional candidate experience.
 
@@ -7,7 +7,7 @@ A production-ready AI-powered recruitment automation system that intelligently s
 
 ## 🚀 Project Overview
 
-The **AI Recruitment Intelligence Automation Platform** is an end-to-end hiring automation solution designed to reduce manual HR workload and improve recruitment efficiency.
+The AI Recruitment Intelligence Automation System is an end-to-end hiring automation solution designed to reduce manual HR workload and improve recruitment efficiency.
 
 Built using:
 
