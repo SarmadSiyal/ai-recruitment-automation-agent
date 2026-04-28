@@ -3,7 +3,6 @@
 
 A production-ready AI-powered recruitment automation system that intelligently screens CVs, evaluates candidates using LLM-based scoring, validates applications, classifies applicants, auto-schedules interviews, and streamlines hiring operations with a professional candidate experience.
 
----
 
 ## 🚀 Project Overview
 
@@ -30,7 +29,6 @@ The system automatically:
 - 🗂 Maintains structured candidate records  
 - 👥 Notifies HR team with interview details  
 
----
 
 ## 🎯 Objectives
 
@@ -42,7 +40,6 @@ The system automatically:
 - Deliver scalable recruitment operations  
 - Maintain professional candidate communication  
 
----
 
 # 🧠 Production Workflow Architecture
 
@@ -87,8 +84,6 @@ Check Candidate Shortlist Status
       Send Rejection Email
 ````
 
----
-
 # ⚙️ Technologies Used
 
 * n8n
@@ -100,11 +95,8 @@ Check Candidate Shortlist Status
 * JSON Structured Output
 * AI Decision Workflows
 
----
 
 # 🔄 Workflow Breakdown
-
----
 
 ## 1️⃣ Candidate Application Intake
 
@@ -114,8 +106,6 @@ The system listens for new Gmail messages that:
 * Contain attachments
 
 This prevents unnecessary processing of irrelevant emails.
-
----
 
 ## 2️⃣ File Validation Layer
 
@@ -131,7 +121,6 @@ The workflow checks whether the attached CV is in **PDF format**.
 
 * Continues to AI screening flow
 
----
 
 ## 3️⃣ Resume Parsing Engine
 
@@ -167,7 +156,6 @@ It evaluates:
 overall_score = (skills_score + experience_score + education_score) / 3
 ```
 
----
 
 ## 5️⃣ Vacancy Status Logic
 
@@ -177,7 +165,6 @@ Before progressing, the workflow checks if the job role is still open.
 
 Candidate receives professional notification that the position has been closed.
 
----
 
 ## 6️⃣ Candidate Classification Logic
 
@@ -204,7 +191,6 @@ If the role is open:
 
 * Sends internal notification to HR team
 
----
 
 ### ❌ Rejected Candidate
 
@@ -213,7 +199,6 @@ If the role is open:
 * Sends polite rejection email
 * Marks email as processed
 
----
 
 # 📁 Google Sheets Database Structure
 
@@ -227,7 +212,6 @@ If the role is open:
 * Job Status
 * Hiring Priority
 
----
 
 ## Candidate CRM Sheet
 
@@ -244,7 +228,6 @@ If the role is open:
 * Interview Time
 * Status
 
----
 
 # 📸 Screenshots
 
@@ -257,7 +240,6 @@ If the role is open:
 **Description:**
 Production-level n8n recruitment workflow with validation layer, AI screening engine, vacancy decision logic, shortlisted/rejected flows, scheduling automation, CRM updates, and HR notifications.
 
----
 
 # 🔐 Security & Reliability
 
@@ -268,7 +250,6 @@ Production-level n8n recruitment workflow with validation layer, AI screening en
 * Professional candidate communication flow
 * Production-ready logic separation
 
----
 
 # 🚀 Key Features
 
@@ -282,7 +263,6 @@ Production-level n8n recruitment workflow with validation layer, AI screening en
 * HR Team Notifications
 * Scalable Hiring Operations
 
----
 
 # 📈 Business Impact
 
@@ -293,7 +273,6 @@ Production-level n8n recruitment workflow with validation layer, AI screening en
 * Saves recruiter operational time
 * Scales recruitment with fewer resources
 
----
 
 # 🏗 Future Improvements
 
@@ -305,12 +284,10 @@ Production-level n8n recruitment workflow with validation layer, AI screening en
 * Multi-role Hiring Pipelines
 * Calendar Auto Booking
 
----
 
 # 👨‍💻 Author
 
 **Sarmad Siyal**
 AI Automation Specialist | AI Agent Builder | Workflow Engineer
 
-```
 ```
