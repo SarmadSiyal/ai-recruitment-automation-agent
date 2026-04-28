@@ -1,4 +1,4 @@
-# 🤖 AI Recruitment Intelligence Automation Platform
+# 🤖 AI Recruitment Intelligence Automation System
 
 A production-ready AI-powered recruitment automation system that intelligently screens CVs, evaluates candidates using LLM-based scoring, validates applications, classifies applicants, auto-schedules interviews, and streamlines hiring operations with a professional candidate experience.
 
